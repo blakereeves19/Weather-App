@@ -4,12 +4,12 @@ import { json } from '../utils/api';
 interface IWeatherProps { }
 
 interface IWeatherState {
-    temperature: number;
-    humidity: number;
-    wind: number;
     name: string;
-    description: string;
+    maxTemp: number;
+    minTemp: number;
     zipcode: number;
+    date: string;
+    weather: string;
 }
 
 const API_KEY = process.env.WEATHER_API;
@@ -20,12 +20,12 @@ export default class Form extends React.Component<IWeatherProps, IWeatherState> 
     constructor(props: IWeatherProps) {
         super(props);
         this.state = {
-            temperature: undefined,
-            humidity: undefined,
-            wind: undefined,
-            name: undefined,
-            description: undefined,
-            zipcode: undefined
+            name: null,
+            maxTemp: null,
+            minTemp: null,
+            zipcode: null,
+            date: null,
+            weather: null
         };
     }
 
@@ -40,7 +40,10 @@ export default class Form extends React.Component<IWeatherProps, IWeatherState> 
             console.log(data);
             this.setState({
                 name: data.city.name,
-                zipcode: null
+                maxTemp: data.list[0].main.temp_max = Math.floor(9 / 5 * (data.list[0].main.temp_max - 273) + 32),
+                minTemp: data.list[0].main.temp_min = Math.floor(9 / 5 * (data.list[0].main.temp_min - 273) + 32),
+                date: data.list[0].dt_txt,
+                weather: data.list[0].weather[0].main
             });
         } catch (e) {
             throw e;
@@ -69,6 +72,10 @@ export default class Form extends React.Component<IWeatherProps, IWeatherState> 
                     <div className="card m-2 border border-info bg-dark">
                         <div className="card-body">
                             <div className="card-title text-white font-weight-bold border border-info border-top-0 border-left-0 border-right-0">{this.state.name} Weather</div>
+                            <div className="text text-white">Max Temperature: {this.state.maxTemp}&#8457;</div>
+                            <div className="text text-white">Min Temperature: {this.state.minTemp}&#8457;</div>
+                            <div className="text text-white">Date: {this.state.date}</div>
+                            <div className="text text-white">Weather: {this.state.weather}</div>
                         </div>
                     </div>
                 </div>
