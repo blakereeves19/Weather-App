@@ -9,7 +9,7 @@ export default class IApp extends React.Component<IAppProps, IAppState> {
         return (
             <Router>
                 <>
-                    <div className="container-margin">
+                    <div className="container-margin cool-blues">
                         <Switch>
                             <Route exact path='/' component={Weather} />
                         </Switch>

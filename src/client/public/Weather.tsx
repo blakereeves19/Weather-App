@@ -1,5 +1,9 @@
 import * as React from 'react';
-import { json } from '../utils/api';
+
+import Cloudy from '../images/Cloudy';
+import Clear from '../images/Clear';
+import Rain from '../images/Rain';
+import Snow from '../images/Snow';
 
 interface IWeatherProps { }
 
@@ -76,6 +80,10 @@ export default class Form extends React.Component<IWeatherProps, IWeatherState> 
                             <div className="text text-white">Min Temperature: {this.state.minTemp}&#8457;</div>
                             <div className="text text-white">Date: {this.state.date}</div>
                             <div className="text text-white">Weather: {this.state.weather}</div>
+                            <Cloudy />
+                            <Clear />
+                            <Rain />
+                            <Snow />
                         </div>
                     </div>
                 </div>
