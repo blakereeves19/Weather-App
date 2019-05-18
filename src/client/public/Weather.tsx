@@ -14,6 +14,7 @@ interface IWeatherState {
     zipcode: number;
     date: string;
     weather: string;
+    isLoading: boolean;
 }
 
 const API_KEY = process.env.WEATHER_API;
@@ -29,7 +30,8 @@ export default class Form extends React.Component<IWeatherProps, IWeatherState> 
             minTemp: null,
             zipcode: null,
             date: null,
-            weather: null
+            weather: null,
+            isLoading: false,
         };
     }
 
@@ -47,11 +49,19 @@ export default class Form extends React.Component<IWeatherProps, IWeatherState> 
                 maxTemp: data.list[0].main.temp_max = Math.floor(9 / 5 * (data.list[0].main.temp_max - 273) + 32),
                 minTemp: data.list[0].main.temp_min = Math.floor(9 / 5 * (data.list[0].main.temp_min - 273) + 32),
                 date: data.list[0].dt_txt,
-                weather: data.list[0].weather[0].main
+                weather: data.list[0].weather[0].main,
+                isLoading: true
             });
         } catch (e) {
             throw e;
         }
+    }
+
+    getDayName = () => {
+        let days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+        let dayReference = new Date(this.state.date).getDay();
+
+        return days[dayReference];
     }
 
     render() {
@@ -73,19 +83,49 @@ export default class Form extends React.Component<IWeatherProps, IWeatherState> 
                         />
                         <button className="btn btn-info mt-3">Get Weather</button>
                     </form>
-                    <div className="card m-2 border border-info bg-dark">
-                        <div className="card-body">
-                            <div className="card-title text-white font-weight-bold border border-info border-top-0 border-left-0 border-right-0">{this.state.name} Weather</div>
-                            <div className="text text-white">Max Temperature: {this.state.maxTemp}&#8457;</div>
-                            <div className="text text-white">Min Temperature: {this.state.minTemp}&#8457;</div>
-                            <div className="text text-white">Date: {this.state.date}</div>
-                            <div className="text text-white">Weather: {this.state.weather}</div>
-                            <Cloudy />
-                            <Clear />
-                            <Rain />
-                            <Snow />
-                        </div>
-                    </div>
+                    {this.state.isLoading ?
+                        <>
+                            <div className="row d-flex justify-content-center">
+                                <div className="col-1 mr-2">
+                                    <div className="card" style={{ width: "100px" }}>
+                                        <div className="card-title">{this.getDayName()}</div>
+                                        <div className="card-body">
+                                            <Clear />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="col-1 mr-2">
+                                    <div className="card" style={{ width: "100px" }}>
+                                        <div className="card-body">
+                                            <Clear />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="col-1 mr-2">
+                                    <div className="card" style={{ width: "100px" }}>
+                                        <div className="card-body">
+                                            <Clear />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="col-1 mr-2">
+                                    <div className="card" style={{ width: "100px" }}>
+                                        <div className="card-body">
+                                            <Clear />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="col-1 mr-2">
+                                    <div className="card" style={{ width: "100px" }}>
+                                        <div className="card-body">
+                                            <Clear />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </>
+                        : null
+                    }
                 </div>
             </>
         );
