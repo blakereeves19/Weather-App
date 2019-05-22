@@ -77,9 +77,9 @@ export default class Form extends React.Component<IWeatherProps, IWeatherState> 
             const getMaxTemp1 = () => {
                 let maxTemp = 0;
 
-                for(let item of data.list){
-                    if(moment(item.dt_txt).format("YYYY-MM-DD") == moment(this.state.date1).format("YYYY-MM-DD")){
-                        if(item.main.temp_max > maxTemp){
+                for (let item of data.list) {
+                    if (moment(item.dt_txt).format("YYYY-MM-DD") == moment(this.state.date1).format("YYYY-MM-DD")) {
+                        if (item.main.temp_max > maxTemp) {
                             maxTemp = item.main.temp_max;
                         }
                     }
@@ -90,9 +90,9 @@ export default class Form extends React.Component<IWeatherProps, IWeatherState> 
             const getMaxTemp2 = () => {
                 let maxTemp = 0;
 
-                for(let item of data.list){
-                    if(moment(item.dt_txt).format("YYYY-MM-DD") == moment(this.state.date2).format("YYYY-MM-DD")){
-                        if(item.main.temp_max > maxTemp){
+                for (let item of data.list) {
+                    if (moment(item.dt_txt).format("YYYY-MM-DD") == moment(this.state.date2).format("YYYY-MM-DD")) {
+                        if (item.main.temp_max > maxTemp) {
                             maxTemp = item.main.temp_max;
                         }
                     }
@@ -103,9 +103,9 @@ export default class Form extends React.Component<IWeatherProps, IWeatherState> 
             const getMaxTemp3 = () => {
                 let maxTemp = 0;
 
-                for(let item of data.list){
-                    if(moment(item.dt_txt).format("YYYY-MM-DD") == moment(this.state.date3).format("YYYY-MM-DD")){
-                        if(item.main.temp_max > maxTemp){
+                for (let item of data.list) {
+                    if (moment(item.dt_txt).format("YYYY-MM-DD") == moment(this.state.date3).format("YYYY-MM-DD")) {
+                        if (item.main.temp_max > maxTemp) {
                             maxTemp = item.main.temp_max;
                         }
                     }
@@ -116,9 +116,9 @@ export default class Form extends React.Component<IWeatherProps, IWeatherState> 
             const getMaxTemp4 = () => {
                 let maxTemp = 0;
 
-                for(let item of data.list){
-                    if(moment(item.dt_txt).format("YYYY-MM-DD") == moment(this.state.date4).format("YYYY-MM-DD")){
-                        if(item.main.temp_max > maxTemp){
+                for (let item of data.list) {
+                    if (moment(item.dt_txt).format("YYYY-MM-DD") == moment(this.state.date4).format("YYYY-MM-DD")) {
+                        if (item.main.temp_max > maxTemp) {
                             maxTemp = item.main.temp_max;
                         }
                     }
@@ -129,9 +129,9 @@ export default class Form extends React.Component<IWeatherProps, IWeatherState> 
             const getMaxTemp5 = () => {
                 let maxTemp = 0;
 
-                for(let item of data.list){
-                    if(moment(item.dt_txt).format("YYYY-MM-DD") == moment(this.state.date5).format("YYYY-MM-DD")){
-                        if(item.main.temp_max > maxTemp){
+                for (let item of data.list) {
+                    if (moment(item.dt_txt).format("YYYY-MM-DD") == moment(this.state.date5).format("YYYY-MM-DD")) {
+                        if (item.main.temp_max > maxTemp) {
                             maxTemp = item.main.temp_max;
                         }
                     }
@@ -142,9 +142,9 @@ export default class Form extends React.Component<IWeatherProps, IWeatherState> 
             const getMinTemp1 = () => {
                 let minTemp = Infinity;
 
-                for(let item of data.list){
-                    if(moment(item.dt_txt).format("YYYY-MM-DD") == moment(this.state.date1).format("YYYY-MM-DD")){
-                        if(item.main.temp_min < minTemp){
+                for (let item of data.list) {
+                    if (moment(item.dt_txt).format("YYYY-MM-DD") == moment(this.state.date1).format("YYYY-MM-DD")) {
+                        if (item.main.temp_min < minTemp) {
                             minTemp = item.main.temp_min;
                         }
                     }
@@ -155,9 +155,9 @@ export default class Form extends React.Component<IWeatherProps, IWeatherState> 
             const getMinTemp2 = () => {
                 let minTemp = Infinity;
 
-                for(let item of data.list){
-                    if(moment(item.dt_txt).format("YYYY-MM-DD") == moment(this.state.date2).format("YYYY-MM-DD")){
-                        if(item.main.temp_min < minTemp){
+                for (let item of data.list) {
+                    if (moment(item.dt_txt).format("YYYY-MM-DD") == moment(this.state.date2).format("YYYY-MM-DD")) {
+                        if (item.main.temp_min < minTemp) {
                             minTemp = item.main.temp_min;
                         }
                     }
@@ -168,9 +168,9 @@ export default class Form extends React.Component<IWeatherProps, IWeatherState> 
             const getMinTemp3 = () => {
                 let minTemp = Infinity;
 
-                for(let item of data.list){
-                    if(moment(item.dt_txt).format("YYYY-MM-DD") == moment(this.state.date3).format("YYYY-MM-DD")){
-                        if(item.main.temp_min < minTemp){
+                for (let item of data.list) {
+                    if (moment(item.dt_txt).format("YYYY-MM-DD") == moment(this.state.date3).format("YYYY-MM-DD")) {
+                        if (item.main.temp_min < minTemp) {
                             minTemp = item.main.temp_min;
                         }
                     }
@@ -181,9 +181,9 @@ export default class Form extends React.Component<IWeatherProps, IWeatherState> 
             const getMinTemp4 = () => {
                 let minTemp = Infinity;
 
-                for(let item of data.list){
-                    if(moment(item.dt_txt).format("YYYY-MM-DD") == moment(this.state.date4).format("YYYY-MM-DD")){
-                        if(item.main.temp_min < minTemp){
+                for (let item of data.list) {
+                    if (moment(item.dt_txt).format("YYYY-MM-DD") == moment(this.state.date4).format("YYYY-MM-DD")) {
+                        if (item.main.temp_min < minTemp) {
                             minTemp = item.main.temp_min;
                         }
                     }
@@ -194,9 +194,9 @@ export default class Form extends React.Component<IWeatherProps, IWeatherState> 
             const getMinTemp5 = () => {
                 let minTemp = Infinity;
 
-                for(let item of data.list){
-                    if(moment(item.dt_txt).format("YYYY-MM-DD") == moment(this.state.date5).format("YYYY-MM-DD")){
-                        if(item.main.temp_min < minTemp){
+                for (let item of data.list) {
+                    if (moment(item.dt_txt).format("YYYY-MM-DD") == moment(this.state.date5).format("YYYY-MM-DD")) {
+                        if (item.main.temp_min < minTemp) {
                             minTemp = item.main.temp_min;
                         }
                     }
@@ -348,19 +348,22 @@ export default class Form extends React.Component<IWeatherProps, IWeatherState> 
             <>
                 <div className="col-sm-12">
                     <form
-                        className="form-group mt-3 border border-info rounded p-3 bg-dark"
+                        className="form-group mt-3"
                         onSubmit={this.handleSubmit}
                     >
-                        <label className="text-white">Zipcode</label>
-                        <input
-                            type="number"
-                            value={undefined}
-                            name="zipcode"
-                            placeholder="Zipcode..."
-                            className="input-group my-1 p-1 border border-info bg-light"
-                            onChange={(e: React.ChangeEvent<HTMLInputElement>) => this.setState({ zipcode: e.target.valueAsNumber })}
-                        />
-                        <button className="btn btn-info mt-3">Get Weather</button>
+                        <div className="input-group input-group-lg mb-3">
+                            <input
+                                type="number"
+                                value={undefined}
+                                name="zipcode"
+                                placeholder="Zipcode..."
+                                className="form-control my-1 p-1 ml-5 bg-light"
+                                onChange={(e: React.ChangeEvent<HTMLInputElement>) => this.setState({ zipcode: e.target.valueAsNumber })}
+                            />
+                            <div className="input-group-append">
+                                <button className="btn btn-primary mr-5" type="button">Get Weather</button>
+                            </div>
+                        </div>
                     </form>
                     {this.state.isLoading ?
                         <>
