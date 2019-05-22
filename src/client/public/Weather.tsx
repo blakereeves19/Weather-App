@@ -357,11 +357,11 @@ export default class Form extends React.Component<IWeatherProps, IWeatherState> 
                                 value={undefined}
                                 name="zipcode"
                                 placeholder="Zipcode..."
-                                className="form-control my-1 p-1 ml-5 bg-light"
+                                className="form-control my-1 p-1 ml-5 bg-light col-sm-6"
                                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => this.setState({ zipcode: e.target.valueAsNumber })}
                             />
-                            <div className="input-group-append">
-                                <button className="btn btn-primary mr-5" type="button">Get Weather</button>
+                            <div className="input-group-append ml-5">
+                                <button className="btn btn-secondary" type="submit">Get Weather</button>
                             </div>
                         </div>
                     </form>
