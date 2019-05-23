@@ -5,6 +5,7 @@ import Cloudy from '../images/Cloudy';
 import Clear from '../images/Clear';
 import Rain from '../images/Rain';
 import Snow from '../images/Snow';
+import { error } from 'util';
 
 interface IWeatherProps { }
 
@@ -31,7 +32,9 @@ interface IWeatherState {
     weather3: string;
     weather4: string;
     weather5: string;
+    city: string;
     isLoading: boolean;
+    error: boolean;
 }
 
 const API_KEY = process.env.WEATHER_API;
@@ -63,7 +66,9 @@ export default class Form extends React.Component<IWeatherProps, IWeatherState> 
             weather3: null,
             weather4: null,
             weather5: null,
+            city: null,
             isLoading: false,
+            error: false
         };
     }
 
@@ -231,9 +236,13 @@ export default class Form extends React.Component<IWeatherProps, IWeatherState> 
                 weather3: data.list[i + 16].weather[0].main,
                 weather4: data.list[i + 24].weather[0].main,
                 weather5: data.list[i + 32].weather[0].main,
-                isLoading: true
+                city: data.city.name,
+                isLoading: true,
+                error: false
             });
         } catch (e) {
+            this.setState({ error: true });
+            this.setState({ error: false });
             throw e;
         }
     }
@@ -351,6 +360,9 @@ export default class Form extends React.Component<IWeatherProps, IWeatherState> 
                         className="form-group mt-3"
                         onSubmit={this.handleSubmit}
                     >
+                    {this.state.error ? alert('Invalid Zipcode') :
+                        null
+                    }
                         <div className="input-group input-group-lg mb-3">
                             <input
                                 type="number"
@@ -368,6 +380,7 @@ export default class Form extends React.Component<IWeatherProps, IWeatherState> 
                     {this.state.isLoading ?
                         <>
                             <div className="row d-flex justify-content-center">
+                                <h4 className="col-sm-12 d-flex justify-content-center">{this.state.city} Weather Forecast</h4>
                                 <div className="col-1 mr-2">
                                     <div className="card" style={{ width: "100px" }}>
                                         <div className="card-title d-flex justify-content-center mb-0">{this.getDayOneName()}</div>
